@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+  <h1>Rent history</h1>
+  {% if rent_list %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Vehicle</th>
+      <th scope="col">Status</th>
+      <th scope="col">Start time</th>
+      <th scope="col">End time</th>
+      <th scope="col">Cost</th>
+    </tr>
+  </thead>
+  <tbody>
+
+{% for rent in rent_list %}
+
+    <tr>
+      <th scope="row">{{ rent.id }}</th>
+      <td>{{ rent.vehicle }}</td>
+      <td>{{ rent.status }}</td>
+      <td>{{ rent.start_time }}</td>
+      <td>{{ rent.end_time }}</td>
+      <td>{{ rent.total_cost_display }}</td>
+    </tr>
+
+{% endfor %}
+
+  </tbody>
+</table>
+
+  {% else %}
+    <p>You have no rents.</p>
+  {% endif %}
+
+
+{% endblock %}

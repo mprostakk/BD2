@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+<h1>Logged out!</h1>
+
+{% bootstrap_button content="Log In" href="login" %}
+
+{% endblock %}

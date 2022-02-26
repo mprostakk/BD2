@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+<h1>User profile</h1>
+
+<form method="post" class="form">
+  {% csrf_token %}
+
+  {% bootstrap_form form %}
+
+  {% bootstrap_button button_type="submit" content="OK" %}
+  {% bootstrap_button button_type="reset" content="Cancel" %}
+
+</form>
+
+<a type="button" class="btn btn-danger" href="{% url 'delete' %}">Delete profile</a>
+
+{% endblock %}
